@@ -1,0 +1,87 @@
+input {
+	
+	background:none;
+}
+
+#reservationNum {
+	position: absolute;
+	top: 500px;
+	left: 425px;
+	width: 300px;
+	height: 30px; 
+}
+
+#first {
+	position: absolute;
+	top: 590px;
+	left: 425px;
+	width: 300px;
+	height: 30px; 
+}
+
+#last {
+	position: absolute;
+	top: 690px;
+	left: 425px;
+	width: 300px;
+	height: 30px; 
+}
+
+#button {
+	position: absolute;
+	top: 760px;
+	left: 540px;
+	width: 300px;
+	height: 30px;
+	background: black;
+	color: yellow; 
+}
+
+#button2 {
+	position: absolute;
+	top: 810px;
+	left: 540px;
+	width: 300px;
+	height: 30px;
+	background: black;
+	color: yellow; 
+}
+
+#button3 {
+	position: absolute;
+	top: 860px;
+	left: 540px;
+	width: 300px;
+	height: 30px;
+	background: black;
+	color: yellow; 
+}
+
+*::-webkit-input-placeholder {
+    color: black;
+}
+*:-moz-placeholder {
+    /* FF 4-18 */
+    color: black;
+}
+*::-moz-placeholder {
+    /* FF 19+ */
+    color: black;
+}
+*:-ms-input-placeholder {
+    /* IE 10+ */
+    color: black;
+}
+
+input[type="text"] {
+	font-size: 25px;
+}
+
+html {
+	background-image: url("../img/login.jpg");
+  			 -webkit-background-size: cover;
+			 -moz-background-size: cover;
+			 -o-background-size: cover;
+			 background-size: cover;
+}
+

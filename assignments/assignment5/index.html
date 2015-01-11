@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame 
+       Remove this if you use the .htaccess -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Tesla Motors (TM) Quiz</title>
+  <meta name="description" content="">
+  <meta name="author" content="Brian Huynh">
+
+  <meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+  <!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+   <style>
+   
+ @import url(style.css);
+   	
+  </style>
+   
+</head>
+
+<body>
+	
+	
+  <div align="center">
+	
+	<h1>Test your Tesla Motors Knowledge</h1>
+	
+	<div id= "question1">
+		
+		<h3>Which of these people co-founded the car company?</h3>
+		
+		<input type="radio" value="1" name="q1" class="one" />J.B. Straubel<br />
+		<input type="radio" value="2" name="q1" class="one" />George Blankenship<br />
+		<input type="radio" value="3" name="q1" class="one" />Peter Thiel<br />
+		<input type="radio" value="4" name="q1" class="one" />Franz Von Holzhausen<br />
+		
+	</div>
+	
+	<div id="question2">
+		
+		<h3>When does the car company plan to release Model 3?</h3>
+		
+		<input type="radio" value="1" name="q2" class="two" />2015<br />
+		<input type="radio" value="2" name="q2" class="two" />2017<br />
+		<input type="radio" value="3" name="q2" class="two" />2022<br />
+		
+	</div>
+
+		<h3>Who is currently the CTO at Tesla Motors</h3>
+		<input type="text" id="q3" />
+	
+	<div id="question4">
+		
+		<h3>When was Tesla Motors founded?</h3>
+		<input type="radio" value="1" name="q4" class="four" />2002<br />
+		<input type="radio" value="2" name="q4" class="four" />2003<br />
+		<input type="radio" value="3" name="q4" class="four" />2006<br />
+		<input type="radio" value="3" name="q4" class="four" />2008<br />
+		
+	</div>
+	
+		<h3>Which auto maker did Tesla Motors partner with to develop the Smart EV?</h3>
+		<input type="text" id = "q5" />
+		
+  </div>
+  
+
+  
+  
+  
+</body>
+  <script>
+  
+  var correctAns = 0;
+  
+  	$(".one").change( function() {
+  	
+  		$.ajax({
+  			type:"post", 
+  			url:"answers.php",
+  			dataType: "json",
+  			data: {"questionNum": "1" ,"useranswer": $(this).attr("value") },
+  			 success: function(data,status) {
+            	if(data['exist'] == "true")
+            	{
+            		displayAnswer(1);
+            	}
+            	else {
+            		displayAnswer(2);
+            	}
+            },
+              complete: function(data,status) { //optional, used for debugging purposes
+               
+              }
+  			
+  		});
+  	});
+  	
+  	
+  	$(".two").change(function() {
+  		 
+  		 $.ajax({
+  			type:"post", 
+  			url:"answers.php",
+  			dataType: "json",
+  			data: {"questionNum": "2" ,"useranswer": $(this).attr("value") },
+  			 success: function(data,status) {
+            	if(data['exist'] == "true")
+            	{
+            		displayAnswer(1);
+            	}
+            	else {
+            		displayAnswer(2);
+            	}
+            },
+              complete: function(data,status) { //optional, used for debugging purposes
+               
+              }
+  			
+  		});
+  	});
+  	
+  	$("#q3").change(function() {
+  	 		
+  		 $.ajax({
+  			type:"post", 
+  			url:"answers.php",
+  			dataType: "json",
+  			data: {"questionNum": "3" ,"useranswer": this.value },
+  			 success: function(data,status) {
+            	if(data['exist'] == "true")
+            	{
+            		$("#q3").css("background-color","green");
+            	}
+            	else {
+            		$("#q3").css("background-color","red");
+            	}
+            },
+              complete: function(data,status) { //optional, used for debugging purposes
+               
+              }
+  			
+  		});
+  	});
+  	
+  	$(".four").change(function() {
+  		 
+  		 $.ajax({
+  			type:"post", 
+  			url:"answers.php",
+  			dataType: "json",
+  			data: {"questionNum": "4" ,"useranswer": $(this).attr("value") },
+  			 success: function(data,status) {
+            	if(data['exist'] == "true")
+            	{
+            		displayAnswer(1);
+            	}
+            	else {
+            		displayAnswer(2);
+            	}
+            },
+              complete: function(data,status) { //optional, used for debugging purposes
+               
+              }
+  			
+  		});
+  	});
+  	
+  	$("#q5").change(function() {
+  		 
+  		 
+  		 $.ajax({
+  			type:"post", 
+  			url:"answers.php",
+  			dataType: "json",
+  			data: {"questionNum": "5" ,"useranswer": this.value },
+  			 success: function(data,status) {
+            	if(data['exist'] == "true")
+            	{
+            		$("#q5").css("background-color","green");
+            	}
+            	else {
+            		$("#q5").css("background-color","red");
+            	}
+            },
+              complete: function(data,status) { //optional, used for debugging purposes
+               
+              }
+  			
+  		});
+  	});
+  	
+   var displayAnswer = function(ans)
+   {
+	   	if (ans == 1) {
+	   		alert("You are awesome!");
+	   	}
+	   	else {
+	   		alert("I'm so sorry you are incorrect!");
+	   	}
+   }
+
+  	
+  </script>
+</html>
